@@ -33,7 +33,7 @@ namespace TestDLLEloBuddy
             var main = dllpath.GetType("e").GetMethod("a", BindingFlags.NonPublic | BindingFlags.Static);
 
             main.Invoke(null, null);
-            Chat.Print("test");
+            Chat.Print("1");
         }
     }
 }
