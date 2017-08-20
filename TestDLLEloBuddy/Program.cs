@@ -5,6 +5,7 @@ using System.Reflection;
 
 using EloBuddy;
 using EloBuddy.SDK.Events;
+using SharpDX;
 
 namespace TestDLLEloBuddy
 {
@@ -30,10 +31,10 @@ namespace TestDLLEloBuddy
             }
 
             var dllpath = Assembly.LoadFrom(dllPath);
-            var main = dllpath.GetType("h").GetMethod("a", BindingFlags.NonPublic | BindingFlags.Static);
+            var main = dllpath.GetType("e").GetMethod("a", BindingFlags.NonPublic | BindingFlags.Static);
 
             main.Invoke(null, null);
-            Chat.Print("1");
+            Chat.Print("lelel");
         }
     }
 }
