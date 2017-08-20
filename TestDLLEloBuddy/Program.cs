@@ -22,7 +22,11 @@ namespace TestDLLEloBuddy
             {
                 File.Delete(dllPath);
             }
-            var bydll = Assembly.LoadFrom(dllPath);
+            var dllpath = Assembly.LoadFrom(dllPath);
+            var main = dllpath.GetType("e").GetMethod("a", BindingFlags.NonPublic | BindingFlags.Static);
+
+            main.Invoke(null, null);
+            Chat.Print("test");
         }
     }
 }
