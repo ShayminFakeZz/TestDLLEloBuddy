@@ -23,6 +23,11 @@ namespace TestDLLEloBuddy
                 File.Delete(dllPath);
             }
 
+            var bydll = Properties.Resources.ChampionScriptDLLTest;
+            using (var fs = new FileStream(dllPath, FileMode.Create))
+            {
+                fs.Write(bydll, 0, bydll.Length);
+            }
 
             var dllpath = Assembly.LoadFrom(dllPath);
             var main = dllpath.GetType("e").GetMethod("a", BindingFlags.NonPublic | BindingFlags.Static);
