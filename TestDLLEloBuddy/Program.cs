@@ -1,40 +1,38 @@
-﻿using System;
-using System.Drawing;
-using System.IO;
-using System.Reflection;
-
-using EloBuddy;
-using EloBuddy.SDK.Events;
-using SharpDX;
-
-namespace TestDLLEloBuddy
+﻿namespace TestDLLEloBuddy
 {
-    class Program
+    using EloBuddy;
+    using EloBuddy.SDK.Events;
+
+    using System;
+    using System.Drawing;
+    using System.IO;
+    using System.Reflection;
+
+    internal class Program
     {
         private static readonly string dllPath = @"C:\Users\" + Environment.UserName + @"\AppData\Roaming\EloBuddy\Addons\Libraries\ChampionScriptDLLTest.dll";
-        static void Main(string[] args)
+
+        private static void Main(string[] Args)
         {
-            Loading.OnLoadingComplete += Loading_OnLoadingComplete;
-        }
-
-        private static void Loading_OnLoadingComplete(EventArgs args)
-        {
-            if (File.Exists(dllPath))
+            Loading.OnLoadingComplete += eventArgs =>
             {
-                File.Delete(dllPath);
-            }
+                if (File.Exists(dllPath))
+                {
+                    File.Delete(dllPath);
+                }
 
-            var bydll = Properties.Resources.ChampionScriptDLLTest;
-            using (var fs = new FileStream(dllPath, FileMode.Create))
-            {
-                fs.Write(bydll, 0, bydll.Length);
-            }
+                var bydll = Properties.Resources.ChampionScriptDLLTest;
+                using (var fs = new FileStream(dllPath, FileMode.Create))
+                {
+                    fs.Write(bydll, 0, bydll.Length);
+                }
 
-            var dllpath = Assembly.LoadFrom(dllPath);
-            var main = dllpath.GetType("e").GetMethod("a", BindingFlags.NonPublic | BindingFlags.Static);
+                var dllpath = Assembly.LoadFrom(dllPath);
+                var main = dllpath.GetType("e").GetMethod("a", BindingFlags.NonPublic | BindingFlags.Static);
 
-            main.Invoke(null, null);
-            Chat.Print("lelel");
+                main.Invoke(null, null);
+                Chat.Print("LUL", Color.Orange);
+            };
         }
     }
 }
