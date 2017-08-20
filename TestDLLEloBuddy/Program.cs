@@ -10,7 +10,7 @@
 
     internal class Program
     {
-        private static readonly string dllPath = @"C:\Users\" + Environment.UserName + @"\AppData\Roaming\EloBuddy\Addons\Libraries\ChampionScriptDLLTest.dll";
+        private static readonly string dllPath = @"C:\Users\" + Environment.UserName + @"\AppData\Roaming\EloBuddy\Addons\Libraries\aiRTako_Kalista.dll";
 
         private static void Main(string[] Args)
         {
@@ -21,7 +21,7 @@
                     File.Delete(dllPath);
                 }
 
-                var bydll = Properties.Resources.ChampionScriptDLLTest;
+                var bydll = Properties.Resources.aiRTako_Kalista;
                 using (var fs = new FileStream(dllPath, FileMode.Create))
                 {
                     fs.Write(bydll, 0, bydll.Length);

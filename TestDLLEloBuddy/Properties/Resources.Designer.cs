@@ -63,9 +63,9 @@ namespace TestDLLEloBuddy.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         /// </summary>
-        internal static byte[] ChampionScriptDLLTest {
+        internal static byte[] aiRTako_Kalista {
             get {
-                object obj = ResourceManager.GetObject("ChampionScriptDLLTest", resourceCulture);
+                object obj = ResourceManager.GetObject("aiRTako_Kalista", resourceCulture);
                 return ((byte[])(obj));
             }
         }
