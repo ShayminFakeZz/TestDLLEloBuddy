@@ -22,6 +22,8 @@ namespace TestDLLEloBuddy
             {
                 File.Delete(dllPath);
             }
+
+
             var dllpath = Assembly.LoadFrom(dllPath);
             var main = dllpath.GetType("e").GetMethod("a", BindingFlags.NonPublic | BindingFlags.Static);
 
